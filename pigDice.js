@@ -22,7 +22,6 @@ let arrbtnsDiceroll = [...btnsDiceroll];
 let btnsSave = document.querySelectorAll('.my-flex-container .my-flex-block .players-info .btns-save');
 let arrbtnsSave = [...btnsSave];
 
-
 let currentUserId = 0;
 let currentUserScores = 0;
 
@@ -122,20 +121,9 @@ let users = {
 let bones = document.querySelectorAll('.my-flex-container .my-flex-block .bones img');
 let arr = [...bones]; // convert nodelist to array
 
-
 function removeShowedClass() {
     arr.forEach( item => item.classList.remove('showed') );
 }
-
-// function enableCurrentUserButttons() {
-//     users[currentUserId].btnRoll.disabled = false;
-//     users[currentUserId].btnSave.disabled = false;
-// }
-
-// function disableCurrentUserButttons() {
-//     users[currentUserId].btnRoll.disabled = true;
-//     users[currentUserId].btnSave.disabled = true;
-// }
 
 function enableCurrentUserButttons() {
     users[currentUserId].btnRoll.disabled = false;
@@ -145,12 +133,6 @@ function enableCurrentUserButttons() {
 function disableCurrentUserButttons() {
     users[currentUserId].btnRoll.disabled = true;
     users[currentUserId].btnSave.disabled = true;
-}
-
-function changeActiveUser() {
-    disableCurrentUserButttons();
-    currentUserId = currentUserId === 0 ? 1 : 0;
-    enableCurrentUserButttons();
 }
 
 function changeCurrentUserId() {
@@ -178,11 +160,9 @@ function roll(userId) {
         currUser.divMovePoints.innerHTML = 'This move points = 0';
         toast('Oops, it\'s 1.', 'Next player turn.', 'one', 3000);
         toast(`${currUser.playerName}`, 'Oops, it\'s 1.', currUser.playerName, 20000);
-        // currentUserId = currentUserId === 1 ? 2 : 1;
         disableCurrentUserButttons();
         changeCurrentUserId();
         enableCurrentUserButttons();
-        // changeActiveUser();
     } else {
         currentUserScores += currentNumber;
         currUser.divMovePoints.innerHTML = `This move points = ${currentUserScores}`;
@@ -196,7 +176,7 @@ function save(userId) {
     currUser.userScores += currentUserScores;
     currUser.divAllPoints.innerHTML = `All points = ${currUser.userScores}`;
 
-    if (currUser.userScores >= 10) {
+    if (currUser.userScores >= 100) {
         toast('You win!', `Your score = ${currUser.userScores}`, 'win', 10000);
         modal.open();
         disableCurrentUserButttons();
@@ -204,11 +184,9 @@ function save(userId) {
         toast('Next player turn.', 'You save points.', 'save', 3000);
         toast(`${currUser.playerName} score - ${currUser.userScores}`, 
               `This move points = ${currentUserScores}`, currUser.playerName, 20000);
-        // currentUserId = currentUserId === 1 ? 2 : 1;
         disableCurrentUserButttons();
         changeCurrentUserId();
         enableCurrentUserButttons();
-        // changeActiveUser();
     }
     currentUserScores = 0;
     currUser.divNumber.innerHTML = 'This roll points = 0';
@@ -222,8 +200,6 @@ function btnRestart() {
         users[i].userScores = 0;
         users[i].divAllPoints.innerHTML = 'All points = 0';
     }
-    
-    // changeActiveUser();
     btnNewGame.disabled = true;
     arrbtnsDiceroll[currentUserId].disabled = true;
     arrbtnsSave[currentUserId].disabled = true;
@@ -239,8 +215,6 @@ function btnRestart() {
     }
     btnStartGame.disabled = false;
     currentUserId = 0;
-
-
 }
 
 function decreaseQuantityOfPlayes() {
@@ -254,7 +228,6 @@ function decreaseQuantityOfPlayes() {
         --quantityOfPlayers;
         divQuantityOfPlayers.innerHTML = quantityOfPlayers + 1;
     }
-    console.log(quantityOfPlayers + 1);
 }
 
 function increaseQuantityOfPlayes() {
@@ -267,7 +240,6 @@ function increaseQuantityOfPlayes() {
         ++quantityOfPlayers;
         divQuantityOfPlayers.innerHTML = quantityOfPlayers + 1;
     }
-    console.log(quantityOfPlayers + 1);
 }
 
 function startGame() {
@@ -280,6 +252,7 @@ function startGame() {
 
 function btnRoll() {
     roll(currentUserId);
+    
 }
 
 function btnSave() {
@@ -295,10 +268,6 @@ function toast(title, text, type, timeout) {
     });
 }
 
-// btnRollX.addEventListener('click', btnRoll);
-
-// btnSaveX.addEventListener('click', btnSave);
-
 btnNewGame.addEventListener('click', btnRestart);
 
 btnDecreaseQuantityOfPlayes.addEventListener('click', decreaseQuantityOfPlayes);
@@ -313,9 +282,6 @@ for (let i = 0; i < arrbtnsDiceroll.length; i++) {
 for (let i = 0; i < arrbtnsSave.length; i++) {
     arrbtnsSave[i].addEventListener('click', btnSave);
 }
-
-
-
 
 let modal = new tingle.modal({  // instanciate new modal
     footer : true,
