@@ -22,6 +22,10 @@ let arrbtnsDiceroll = [...btnsDiceroll];
 let btnsSave = document.querySelectorAll('.my-flex-container .my-flex-block .players-info .btns-save');
 let arrbtnsSave = [...btnsSave];
 
+let playersInfo = document.querySelectorAll('.my-flex-container .my-flex-block .players-info');
+let arrPlayersInfo = [...playersInfo]
+
+
 let currentUserId = 0;
 let currentUserScores = 0;
 
@@ -119,10 +123,10 @@ let users = {
 };
 
 let bones = document.querySelectorAll('.my-flex-container .my-flex-block .bones img');
-let arr = [...bones]; // convert nodelist to array
+let arrBones = [...bones]; // convert nodelist to array
 
 function removeShowedClass() {
-    arr.forEach( item => item.classList.remove('showed') );
+    arrBones.forEach( item => item.classList.remove('showed') );
 }
 
 function enableCurrentUserButttons() {
@@ -168,7 +172,7 @@ function roll(userId) {
         currUser.divMovePoints.innerHTML = `This move points = ${currentUserScores}`;
         toast(`${currUser.playerName}`, `You have -  ${currentNumber}`, currUser.playerName, 20000);
     }
-    arr[currentNumber].classList.add('showed');
+    arrBones[currentNumber].classList.add('showed');
 }
 
 function save(userId) {
@@ -218,6 +222,7 @@ function btnRestart() {
 }
 
 function decreaseQuantityOfPlayes() {
+    arrPlayersInfo[quantityOfPlayers].classList.remove('in-game');   
     if (quantityOfPlayers === 2) {
         btnDecreaseQuantityOfPlayes.disabled = true;
         --quantityOfPlayers;
@@ -240,6 +245,8 @@ function increaseQuantityOfPlayes() {
         ++quantityOfPlayers;
         divQuantityOfPlayers.innerHTML = quantityOfPlayers + 1;
     }
+    arrPlayersInfo[quantityOfPlayers].classList.add('in-game');  
+    console.log(arrPlayersInfo[quantityOfPlayers]); 
 }
 
 function startGame() {

@@ -132,12 +132,12 @@ body {
 }
 /* .my-flex-block:nth-child(1) {
     width: 20%;
-}
+} */
 
-.my-flex-block:nth-child(3) {
-    width: 25%;
-}
-
+/* .my-flex-block:nth-child(3) {
+    width: 65%;
+} */
+/* 
 .my-flex-block:nth-child(4) {
     width: 25%;
 } */
@@ -205,4 +205,12 @@ body {
 
 #div-quantity-of-players {
     font-size: 25px;
+}
+
+.players-info {
+    opacity: 0;
+}
+
+.players-info.in-game {
+    opacity: 1;
 }
