@@ -199,7 +199,7 @@ body {
     cursor: default;
 }
 
-.btns:active {
+.btns:active, .btns-dice-roll:active, .btns-save:active {
     background-color: aqua;
 }
 
