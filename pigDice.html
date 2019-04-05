@@ -8,201 +8,55 @@
      <link href="modules/src/tingle.css" rel="stylesheet"/>
      <script src="modules/src/tingle.js" defer></script>
      <script src="pigDice.js" defer></script>
+     <script src="functions.js" defer></script>
+     <script src="modalFunctions.js" defer></script>
      <link rel="stylesheet" href="pigDice.css">
 </head>
 
 <body>  
-     <div class="my-flex-container">
-          <div class="my-flex-block">
-               <button id="btn-new-game" class="btns" value="disable" disabled>New game</button>
-               <div class="btns-quantity-of-players">
-                    <button id="btn-decrease-quantity-of-players" class="btns" value="disable" disabled>-</button>
-                    <div id="div-quantity-of-players">2</div>
-                    <button id="btn-increase-quantity-of-players" class="btns" value="disable">+</button>
-               </div>
-               <button id="btn-start-game" class="btns" value="disable" >Start game</button>
-               
 
-          </div>
-          <div class="my-flex-block">
-               <h1>Pig game</h1>
-               <div id="rules">
-                    Правила игры: Цель игры — набрать 100 очков.
-                    Ход заключается в следующем: 
-                    игрок делает ход (нажимая кнопку "Dice roll") неограниченное 
-                    число раз и суммирует выпадающие значения. Однако если 
-                    выпадает единица, вся сумма, набранная за ход, аннулируется 
-                    и ход переходит к следующему игроку. 
-                    Игрок может завершить свой ход в любой момент 
-                    (нажав кнопку "Save") и сохранив набранные очки.
-               </div>
-               
-               <div class="bones">
-                    <img src="img/empty.png" class="showed">
-                    <img src="img/1.png" >
-                    <img src="img/2.png" >
-                    <img src="img/3.png" >
-                    <img src="img/4.png" >
-                    <img src="img/5.png" >
-                    <img src="img/6.png" >
-               </div>
-          </div>
-          <div class="my-flex-block">
-               <div class="players-info in-game"> Player 1
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div> 
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-               <div class="players-info in-game" > Player 2
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
+     <div class="pig-game-window">
+          <div class="pig-game-flex-container">
+               <div class="pig-game-flex-block">
+                    <div class="pig-game-menu-div">
+                         <div class="pig-game-headline-wrapper">
+                              <span class="pig-game-headline-span">Pig game</span>
+                         </div>
+                         <div class="pig-game-rules-wrapper">
+                              <div class="pig-game-rules-div">
+                                   <span class="begin-of-rules">Правила игры:</span> 
+                                   Цель игры — набрать 100 очков.
+                                   Ход заключается в следующем: 
+                                   игрок делает ход (нажимая кнопку "Dice roll") неограниченное 
+                                   число раз и суммирует выпадающие значения. Однако если 
+                                   выпадает единица, вся сумма, набранная за ход, аннулируется 
+                                   и ход переходит к следующему игроку. 
+                                   Игрок может завершить свой ход в любой момент 
+                                   (нажав кнопку "Save") и сохранив набранные очки.
+                              </div>
+                         </div>
+                         <div class="pig-game-imgs-of-bone-wrapper">
+                              <div class="bones">
+                                   <img src="img/empty.png" class="showed">
+                                   <img src="img/1.png" >
+                                   <img src="img/2.png" >
+                                   <img src="img/3.png" >
+                                   <img src="img/4.png" >
+                                   <img src="img/5.png" >
+                                   <img src="img/6.png" >
+                              </div>
+                         </div>
+                         <div class="pig-game-btn-wrapper">
+                              <button id="btn-new-game" class="btn" value="disable" disabled>New game</button>
+                         </div>                         
                     </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
                </div>
-               <div class="players-info"> Player 3
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>               
-          </div>
-          <div class="my-flex-block">
-               <div class="players-info"> Player 4
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-               <div class="players-info"> Player 5
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-               <div class="players-info"> Player 6
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-               <div class="players-info"> Player 7
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-          </div>
-          <div class="my-flex-block">
-               <div class="players-info"> Player 8
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-               <div class="players-info"> Player 9
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-               <div class="players-info">Player 10
-                    <div>
-                         <button class="btns-dice-roll" value="disable" disabled>Dice roll</button>
-                         <button class="btns-save" value="disable" disabled>Save</button>
-                    </div>
-                    <div class="players-dice-number">This roll points = 0</div>
-                    <div class="players-move-points">This move points = 0</div>
-                    <div class="players-all-points">All points = 0</div>
-               </div>
-          </div>
-          
-     </div>
      
-
-
-
-
-
-
-
-
-
-
-
-
-     <!-- <div class="my-flex-container">
-          <div class="my-flex-block">
-               <div>
-                    <button id="btn-dice-roll-x" class="btn" value="disable">Dice roll</button>
-                    <button id="btn-save-x" class="btn" value="disable">Save</button>
+               <div class="pig-game-flex-block">
+                    <div class="pig-game-users-wrapper"></div>
                </div>
-               <div id="div-number-x" class="info">This roll points = 0</div>
-               <div id="div-move-points-x" class="info">This move points = 0</div>
-               <div id="div-all-points-x" class="info">All points = 0</div>
           </div>
-          <div class="my-flex-block">
-               <h1>Pig game</h1>
-               <div id="rules">
-                    Правила игры: Цель игры — набрать 100 очков.
-                    Ход заключается в следующем: 
-                    игрок делает ход (нажимая кнопку "Dice roll") неограниченное 
-                    число раз и суммирует выпадающие значения. Однако если 
-                    выпадает единица, вся сумма, набранная за ход, аннулируется 
-                    и ход переходит к следующему игроку. 
-                    Игрок может завершить свой ход в любой момент 
-                    (нажав кнопку "Save") и сохранив набранные очки.
-               </div>
-               
-               <div class="bones">
-                    <img src="img/empty.png" class="showed">
-                    <img src="img/1.png" >
-                    <img src="img/2.png" >
-                    <img src="img/3.png" >
-                    <img src="img/4.png" >
-                    <img src="img/5.png" >
-                    <img src="img/6.png" >
-               </div>
-               <button id="btn-new-game" class="btn" value="disable" disabled>New game</button>
-          </div>
-          <div class="my-flex-block">
-               <div>
-                    <button id="btn-dice-roll-y" class="btn" value="disable" disabled>Dice roll</button>
-                    <button id="btn-save-y" class="btn" value="disable" disabled>Save</button>
-               </div>
-               <div id="div-number-y" class="info">This roll points = 0</div>
-               <div id="div-move-points-y" class="info">This move points = 0</div>
-               <div id="div-all-points-y" class="info">All points = 0</div>
-          </div>
-        </div> -->
-    
+     </div>
 
 </body>
 </html>

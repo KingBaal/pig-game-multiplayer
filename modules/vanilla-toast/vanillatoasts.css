@@ -3,9 +3,9 @@
   top: 0;
   right: 0;
   /* width: 320px; */
-  width: 18%;
+  width: 20%;
   font-family: 'Helvetica';
-  margin-top: 65px;
+  /* margin-top: 65px; */
   
   -webkit-user-select: none;
 
@@ -105,8 +105,8 @@
   top: 0;
   left: 0;
   width: 20%;
-  margin-top: 75px;
-  margin-left: 13%;
+  margin-top: 15px;
+  margin-left: 27%;
   font-family: 'Helvetica';
   background-color: #B0C4DE;
 }
@@ -122,8 +122,8 @@
   top: 0;
   left: 0;
   width: 20%;
-  margin-top: 75px;
-  margin-left: 13%;
+  margin-top: 15px;
+  margin-left: 27%;
   font-family: 'Helvetica';
   background-color: #FF6347	;
 }
@@ -139,8 +139,8 @@
   top: 0;
   left: 0;
   width: 20%;
-  margin-top: 75px;
-  margin-left: 13%;
+  margin-top: 15px;
+  margin-left: 27%;
   font-family: 'Helvetica';
   background-color: #F0E68C;
 }

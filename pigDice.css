@@ -6,50 +6,79 @@ body {
     text-align: center;
 }
 
-/* .info {
-    width: 175px;
-    height: 80px;
-    background-color: #FFE4E1;
-    margin: 15px;
-    text-align: left;
-    padding-left: 10px;
-    padding-top: 25px;
-    font-size: 15px;
-} */
+/* стиль для невалидных полей */
+input:invalid{
+    border-color: #900;
+    background-color: #FDD;
+    box-shadow: 0 0 5px 1px red;
 
-.my-flex-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+}
+
+.pig-game-window {
     border: solid black 1px;
     border-radius: 8px;
     background-color: #FFF5EE;
     width: 80%;
-    margin-top: 65px;
-    margin-left: 10px;
-    margin-right: 10px;
+}
+
+.pig-game-flex-container{
+    display: flex;
+    margin-top: 60px;
     -webkit-user-select: none;
 }
 
-.my-flex-block:nth-child(2) {
-    margin-top: 65px;
-    width: 350px;
+.pig-game-flex-block:first-child {
+    width: 45%;
+    display: flex;
+    justify-content: stretch;
 }
 
-#rules {
-    margin-top: 15px;
-    text-indent: 10px;
+.pig-game-flex-block:nth-child(2) {
+    width: 55%;
+}
+
+.pig-game-users-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+/* first flex block (menu)*/
+.pig-game-menu-div {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: solid black 1px;
+    border-radius: 8px;
+    background: cornsilk;
+}
+.pig-game-headline-span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.pig-game-rules-div {
+    text-indent: 20px;
     text-align: justify;
+    margin: 10px;
+}
+
+.begin-of-rules {
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .bones {
-    margin-top: 20px;
-    height: 85px;
+    margin: 10px 0;
+    height: 55px;
     display: flex;
     justify-content: center
 }
 
-.my-flex-container .my-flex-block .bones img { 
+.pig-game-flex-container .pig-game-flex-block .bones img { 
     width: 65px;
     height: 65px;
     position: absolute;
@@ -57,13 +86,46 @@ body {
     transition: transform 1s;
 }
 
-.my-flex-container .my-flex-block .bones img.showed {
+.pig-game-flex-container .pig-game-flex-block .bones img.showed {
     opacity: 1;
-    transform: rotate(11160deg) scale(1.2);
+    transform: rotate(11160deg);
 }
 
-/* .btn, 
-.info {
+/* second flex block with users */
+.user {
+    margin: 5px;
+    border: 2px solid #fe6637;
+    border-radius: 8px;
+    width: 175px;
+    background: PeachPuff;
+}
+
+.user-div-dice-number, .user-div-move-points, .user-div-all-points {
+    text-align: left;
+    margin: 5px;
+}
+
+.user-name-wrapper {
+    margin: 5px;
+}
+
+.user .user-name-span {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.user .btn {
+    margin: 5px;
+    padding: 5px 0;
+    width: 50%;
+}
+
+.user-btns {
+    display: flex;
+}
+
+/* btns decor */
+.btn {
     text-decoration: none;
     outline: none;
     background: #FFE4E1;
@@ -74,10 +136,12 @@ body {
     font-family: 'Montserrat', sans-serif; 
     color: #fe6637;
     transition: .2s ease-in-out;
+    padding: 10px 10px;
+    margin: 20px 10px;
+    cursor: pointer;
 }
 
-.btn:before, 
-.info:before {
+.btn:before {
     content: "";
     background: linear-gradient(90deg, rgba(214, 241, 92, 0.1), rgba(255,255,255,.5));
     height: 155px;
@@ -88,129 +152,138 @@ body {
     transform: skewX(-45deg);
 }
 
-.btn:hover, 
-.info:hover {
+.btn:hover {
     background: #fe6637;
     color: #fff;
 }
 
-.btn:hover:before, 
-.info:hover:before {
+.btn:hover:before {
     left: 250px;
     transition: .6s ease-in-out;
 }
 
-.btn {
-    padding: 10px 10px;
-    margin: 10px 10px;
-    cursor: pointer;
-}
-
-.btn:disabled,
-.btn[disabled] {
+.btn:disabled, .btn[disabled] {
     background-color: #cccccc;
     color: #666666;
     cursor: default;
 }
 
 .btn:active {
-    background-color: aqua;
-} */
+    background-color: aquamarine;
+}
 
+/* end game modal window */
+.end-game-modal .tingle-modal-box__content {
+    padding: 15px;
+}
 
-.players-info {
-    /* background-color: aqua; */
-    margin: 5px;
-    border: 2px solid #fe6637;
+.game-results-flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.game-winner-flex-block {
+    width: 70%;
+}
+
+.game-winner-span {
+    font-size: 50px;
+    color: crimson;
+    font-weight:bold;
+}
+
+.game-statistic-flex-block {
+    width: 30%;
+    border: solid black 1px;
     border-radius: 8px;
-    width: 170px;
 }
 
-.players-dice-number, .players-move-points, .players-all-points {
-    text-align: left;
-    margin: 5px;
-}
-/* .my-flex-block:nth-child(1) {
-    width: 20%;
-} */
-
-/* .my-flex-block:nth-child(3) {
-    width: 450px;
-} */
-/* 
-.my-flex-block:nth-child(4) {
-    width: 25%;
-} */
-
-
-
-
-
-
-
-
-
-.btns, .btns-dice-roll, .btns-save {
-    text-decoration: none;
-    outline: none;
-    background: #FFE4E1;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid #fe6637;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif; 
-    color: #fe6637;
-    transition: .2s ease-in-out;
-    margin: 5px;
+.game-statistic-div {
+    font-size: 15px;
 }
 
-.btns:before, .btns-dice-roll:before, .btns-save:before {
-    content: "";
-    background: linear-gradient(90deg, rgba(214, 241, 92, 0.1), rgba(255,255,255,.5));
-    height: 155px;
-    width: 70px;
-    position: absolute;
-    top: -30px;
-    left: -115px;
-    transform: skewX(-45deg);
+.statistic-headline-span, .user-name-span {
+    font-weight: bold;
 }
 
-.btns:hover, .btns-dice-roll:hover, .btns-save:hover {
-    background: #fe6637;
-    color: #fff;
+.user-statistic {
+    margin: 1px;
 }
 
-.btns:hover:before, .btns-dice-roll:hover:before, .btns-save:hover:before {
-    left: 250px;
-    transition: .6s ease-in-out;
+.end-game-modal .btn {
+    margin: 10px;
 }
 
-.btns {
-    padding: 10px 10px;
-    margin: 30px 10px;
-    cursor: pointer;
-}
-
-.btns:disabled, .btns[disabled],
-.btns-dice-roll:disabled, .btns-dice-roll[disabled],
-.btns-save:disabled, .btns-save[disabled] {
-    background-color: #cccccc;
-    color: #666666;
-    cursor: default;
-}
-
-.btns:active, .btns-dice-roll:active, .btns-save:active {
-    background-color: aqua;
-}
-
-#div-quantity-of-players {
+/* start game modal window */
+#btn-add-user, #btn-remove-user {
     font-size: 25px;
+    font-weight:bold;
+    text-align: center;
 }
 
-.players-info {
-    opacity: 0;
+#btn-start-game {
+    font-size: 20px;
+    margin: 0;
 }
 
-.players-info.in-game {
-    opacity: 1;
+.start-choose-div {
+    margin: 15px;
+}
+
+#number-of-users-span {
+    font-size: 20px;
+}
+
+.headline-span {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.start-choose-Flex-block {
+    width: 50%;
+}
+
+.start-change-user-name-flex-block {
+    width: 50%;
+    margin: 20px 0;
+    border: solid black 1px;
+    border-radius: 8px;
+}
+
+/* start game modal window. save users name */
+.change-users-name-div {
+    max-height: 23vh;
+    /* height: 22vh; */
+    overflow: auto;
+}
+
+.change-users-name-headline-span {
+    font-weight: bold;
+    font-size: 17px; 
+}
+
+.user-number-span {
+    font-weight: bold;
+}
+
+.user-name-div {
+    margin: 5px;
+}
+
+.user-number-span {
+    font-size: 15px; 
+}
+
+.change-users-name-div {
+}
+
+/* .tingle modal box */
+.tingle-modal-box {
+    background-color: #FFF5EE;
+    border: solid black 1px;
+    border-radius: 8px;
 }
