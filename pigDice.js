@@ -15,7 +15,7 @@ let ChangeUsersNameWrapper;
 let quantityOfPlayers = 1;
 let currentUserId = 0;
 let currentUserScores = 0;
-let PointsToWin = 5;
+let PointsToWin = 100;
 
 let bones = document.querySelectorAll('.bones img');
 let arrBones = [...bones]; // convert nodelist to array
